@@ -1,0 +1,116 @@
+@import "../../../mixins.scss";
+
+.hero__banner {
+  width: 100%;
+  height: 400px;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  position: relative;
+  @include md {
+    height: 600px;
+  }
+
+  .hero__backdrop-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    overflow: hidden;
+
+    .lazy-load-image-background {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  .hero__overlay {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, var(--black) 86%);
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+  }
+
+  .hero__wrapper {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    gap: 1.8rem;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      text-align: center;
+      @include md {
+        gap: 0.6rem;
+      }
+
+      .title {
+        font-size: 50px;
+        font-weight: 700;
+        opacity: 0.8;
+        @include md {
+          font-size: 80px;
+        }
+      }
+      .subtitle {
+        font-size: 16px;
+        @include md {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .hero__search {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .2rem;
+
+      input {
+        width: calc(100% - 100px);
+        height: 50px;
+        padding: 1rem;
+        border-radius: 5rem 0 0 5rem;
+        font-size: 14px;
+        @include md {
+          width: calc(100% - 150px);
+          font-size: 18px;
+          height: 60px;
+        }
+      }
+      button {
+        width: 100px;
+        height: 50px;
+        padding: 1rem;
+        background: var(--gradient);
+        color: white;
+        border-radius: 0 5rem 5rem 0;
+        font-size: 16px;
+        @include md {
+          width: 150px;
+          height: 60px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
