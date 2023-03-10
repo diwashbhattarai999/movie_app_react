@@ -65,7 +65,7 @@ li:hover {
 .skeleton {
   position: relative;
   overflow: hidden;
-  background-color: #0a2955;
+  background-color: #44474c;
   &::after {
     content: "";
     position: absolute;
@@ -76,10 +76,10 @@ li:hover {
     transform: translateX(-100%);
     background-image: linear-gradient(
       90deg,
-      rgba(#193763, 0) 0,
-      rgba(#193763, 0.2) 20%,
-      rgba(#193763, 0.5) 60%,
-      rgba(#193763, 0)
+      rgba(#0d1d34, 0) 0,
+      rgba(#0c1c33, 0.2) 20%,
+      rgba(#070f1b, 0.5) 60%,
+      rgba(#050d18, 0)
     );
     animation: shimmer 2s infinite;
   }

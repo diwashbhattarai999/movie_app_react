@@ -22,6 +22,9 @@ function App() {
       dispatch(getApiConfiguration(url));
     });
   };
+
+  
+
   return (
     <BrowserRouter>
       <Header />

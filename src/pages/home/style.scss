@@ -1,0 +1,16 @@
+.trending {
+    margin-top: 1rem;
+
+    & > .contentWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    .trending__title {
+        color: white;
+        font-size: 1.6rem;
+        font-weight: 400;
+    }
+}
