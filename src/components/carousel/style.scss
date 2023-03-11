@@ -13,19 +13,19 @@
   }
   .arrow {
     font-size: 30px;
-    color: black;
+    color: rgb(124, 124, 124);
     position: absolute;
     top: 44%;
     transform: translateY(-50%);
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.6;
     z-index: 1;
     display: none;
     @include md {
       display: block;
     }
     &:hover {
-      opacity: 0.8;
+      opacity: 0.9;
     }
   }
   .leftarrow {
@@ -86,7 +86,7 @@
     padding: 0 20px;
     @include md {
       gap: 20px;
-      overflow: hidden;
+      // overflow: hidden;
       margin: 0;
       padding: 0;
     }
