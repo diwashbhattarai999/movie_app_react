@@ -44,7 +44,7 @@ const HeroBanner = () => {
       <ContentWrapper>
         <div className="hero__wrapper">
           <div className="hero__content">
-            <span className="title">Welcome.</span>
+            <span className="title">Find Movies, TV shows and more</span>
             <span className="subtitle">
               Millions of movies, TV shows and people to discover.Explore Now
             </span>

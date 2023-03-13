@@ -22,7 +22,7 @@ const Popular = () => {
           onTabChange={onTabChange}
         />
       </ContentWrapper>
-      <Carousel data={data?.results} loading={loading} />
+      <Carousel data={data?.results} loading={loading} endPoint={endPoint} />
     </div>
   );
 };

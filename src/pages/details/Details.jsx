@@ -1,9 +1,15 @@
-import './style.scss'
+// import { useParams } from "react-router-dom";
+import DetailsBanner from "./detailsBanner/DetailsBanner";
+import "./style.scss";
 
 const Details = () => {
-  return (
-    <div>Details</div>
-  )
-}
+  // const { mediaType, id } = useParams();
 
-export default Details
+  return (
+    <div className="details">
+      <DetailsBanner />
+    </div>
+  );
+};
+
+export default Details;

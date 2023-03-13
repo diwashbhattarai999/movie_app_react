@@ -1,16 +1,28 @@
+@import "../../mixins.scss";
+
 .home__carousel-title {
-    margin-top: 1rem;
+  margin-top: 1rem;
 
-    & > .contentWrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 30px;
+  & > .contentWrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 30px;
+    @include md {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
+  }
 
-    .subtitle {
-        color: white;
-        font-size: 1.6rem;
-        font-weight: 400;
+  .subtitle {
+    color: white;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-right: .6rem;
+    @include md {
+      font-size: 1.6rem;
     }
+  }
 }
