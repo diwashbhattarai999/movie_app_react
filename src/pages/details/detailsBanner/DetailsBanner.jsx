@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { ContentWrapper, Img } from "../../../components";
+import { CircleRating, ContentWrapper, Img } from "../../../components";
 import useFetch from "../../../hooks/useFetch";
 import dayjs from "dayjs";
 
 import PosterFallBack from "../../../assets/no-poster.png";
+import { PlayIcon } from "../PlayIcon";
 
 import "./style.scss";
 
@@ -37,16 +38,29 @@ const DetailsBanner = () => {
                   </div>
                   <div className="content__info">
                     <h1 className="title">
-                      {data?.original_title} (
+                      {data?.original_title || data?.original_name} (
                       {dayjs(data?.release_date).format("YYYY")})
                     </h1>
                     <h3 className="subtitle">{data?.tagline}</h3>
                     <div className="genres">
-                        {
-                            data?.genres.map((item) => {
-                                return <div className="genre" key={item.id}>{item.name}</div>
-                            })
-                        }
+                      {data?.genres.map((item) => {
+                        return (
+                          <div className="genre" key={item.id}>
+                            {item.name}
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="row">
+                      <CircleRating rating={data?.vote_average.toFixed(1)} />
+                      <div className="play__btn">
+                        <PlayIcon />
+                        <span className="text">Watch Trailor</span>
+                      </div>
+                    </div>
+                    <div className="overview">
+                        <h2 className="heading">Overview</h2>
+                        <p className="description">{data?.overview}</p>
                     </div>
                   </div>
                 </div>

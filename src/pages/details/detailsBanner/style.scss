@@ -71,18 +71,96 @@
     }
 
     .content__info {
-        color: white;
-        .title {
-            font-size: 28px;
-            line-height: 2rem;
+      color: white;
+      .title {
+        font-size: 28px;
+        line-height: 2rem;
+      }
+      .subtitle {
+        font-size: 16px;
+        line-height: 1.6rem;
+        margin-bottom: 15px;
+        font-style: italic;
+        opacity: 0.5;
+      }
+      .genres {
+        margin-bottom: 25px;
+        flex-flow: row wrap;
+      }
+      .circle__rating {
+        max-width: 70px;
+        background-color: var(--black2);
+        @include md {
+          max-width: 90px;
         }
-        .subtitle {
-            font-size: 16px;
-            line-height: 1.6rem;
-            margin-bottom: 15px;
-            font-style: italic;
-            opacity: .5;
+        .CircularProgressbar-text {
+          fill: white;
         }
+        .CircularProgressbar-trail {
+          stroke: var(--black3);
+        }
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        margin-bottom: 25px;
+      }
+
+      .play__btn {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+        svg {
+          width: 60px;
+          @include md {
+            width: 80px;
+          }
+        }
+        .text {
+          font-size: 20px;
+          transition: all 0.7s ease-in-out;
+        }
+        .triangle {
+          stroke-dasharray: 240;
+          stroke-dashoffset: 480;
+          stroke: white;
+          transform: translateY(0);
+          transition: all 0.7s ease-in-out;
+        }
+        .circle {
+          stroke: white;
+          stroke-dasharray: 650;
+          stroke-dashoffset: 1300;
+          transition: all 0.5s ease-in-out;
+        }
+        &:hover {
+          .text {
+            color: var(--pink);
+          }
+          .triangle {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            stroke: var(--pink);
+            animation: trailorPlay 0.7s ease-in-out;
+          }
+          .circle {
+            stroke-dashoffset: 0;
+            stroke: var(--pink);
+          }
+        }
+      }
+      .overview {
+        margin-bottom: 25px;
+        .heading {
+          font-size: 24px;
+          margin-bottom: 10px;
+        }
+        .description {
+          line-height: 24px;
+        }
+      }
     }
   }
 
