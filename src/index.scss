@@ -1,15 +1,20 @@
+//  Define global variables using :root
+
 :root {
+  //  Set default font family and size
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 1;
+  // Set default font weight
   font-weight: 500;
 
+  //  Improve font rendering
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
+  //  Define custom color variables
   --black: #0e0e0e;
   --black2: #1c1c1c;
   --black3: #373737;
@@ -28,44 +33,55 @@
   );
 }
 
+/* Reset default margin and padding for all elements */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+//  Set background color for the whole page
 body {
   background-color: var(--black);
 }
 
+//  Hide scrollbar
 ::-webkit-scrollbar {
   display: none;
 }
 
+// Remove default border and outline for input and button elements
 input,
 button {
   border: none;
   outline: none;
 }
 
+// Set cursor to pointer for all buttons
 button {
   cursor: pointer;
 }
 
+// Remove bullet points from lists and set default text color
 li {
   list-style: none;
   color: white;
   cursor: pointer;
 }
 
+// Set text color to pink on hover for list items
 li:hover {
   color: var(--pink);
 }
 
+// Define CSS styles for skeleton loading animation
 .skeleton {
   position: relative;
   overflow: hidden;
   background-color: #44474c;
+
+  // Add gradient animation
   &::after {
     content: "";
     position: absolute;
@@ -84,6 +100,7 @@ li:hover {
     animation: shimmer 2s infinite;
   }
 
+  // Define keyframes for shimmer animation
   @keyframes shimmer {
     100% {
       transform: translateX(100%);

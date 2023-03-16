@@ -66,6 +66,7 @@ const Header = () => {
     }
 
     setMobileMenu(false);
+    window.scrollTo(0, 0);
   };
 
   const handleSearch = () => {
@@ -104,7 +105,7 @@ const Header = () => {
     >
       <ContentWrapper>
         <div className="logo">
-          <img src={logo} alt="" />
+          <img src={logo} alt="" onClick={() => handleMenuItem("home")} />
         </div>
         <div className="menu">
           <ul className="menu__items">
