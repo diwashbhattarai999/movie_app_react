@@ -1,15 +1,24 @@
-import { useSelector } from "react-redux"; // Importing the useSelector hook from react-redux for accessing the state
-import { useParams } from "react-router-dom"; // Importing the useParams hook from react-router-dom for accessing the URL parameters
-import { CircleRating, ContentWrapper, Img } from "../../../components"; // Importing components from the components folder
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import {
+  CircleRating,
+  ContentWrapper,
+  Img,
+  VideoPopup,
+} from "../../../components";
 import useFetch from "../../../hooks/useFetch"; // Importing the custom hook useFetch for making API calls
 import dayjs from "dayjs"; // Importing the dayjs library for formatting dates
 
-import PosterFallBack from "../../../assets/no-poster.png"; // Importing the default poster fallback image
-import { PlayIcon } from "../PlayIcon"; // Importing the PlayIcon component
+import PosterFallBack from "../../../assets/no-poster.png";
+import { PlayIcon } from "../PlayIcon";
 
-import "./style.scss"; // Importing the stylesheet for the component
+import "./style.scss";
 
 const DetailsBanner = ({ video, crew }) => {
+  const [show, setShow] = useState(false);
+  const [videoId, setVideoId] = useState(null);
+
   const { mediaType, id } = useParams(); // Destructuring the mediaType and id parameters from the URL
   const { data, loading } = useFetch(`/${mediaType}/${id}`); // Calling the useFetch hook with the mediaType and id to get the data from the API
 
@@ -51,7 +60,7 @@ const DetailsBanner = ({ video, crew }) => {
                   {/* Render the "content__info" */}
                   <div className="content__info">
                     <h1 className="title">
-                      {data?.original_title || data?.original_name} (
+                      {data?.original_title || data?.name} (
                       {dayjs(data?.release_date).format("YYYY")})
                     </h1>
 
@@ -73,7 +82,13 @@ const DetailsBanner = ({ video, crew }) => {
                     <div className="row">
                       {/* Render the media rating using the CircleRating component */}
                       <CircleRating rating={data?.vote_average.toFixed(1)} />
-                      <div className="play__btn">
+                      <div
+                        className="play__btn"
+                        onClick={() => {
+                          setShow(true);
+                          setVideoId(video.key);
+                        }}
+                      >
                         {/* Render the PlayIcon component */}
                         <PlayIcon />
                         <span className="text">Watch Trailor</span>
@@ -167,9 +182,38 @@ const DetailsBanner = ({ video, crew }) => {
                       </div>
                     )}
 
-                    
+                    {data.created_by?.length > 0 && (
+                      /* Render the writer information only if there is at least one writer */
+                      <div className="info">
+                        <span className="text bold">Creator: </span>
+                        <span className="text">
+                          {/* Iterate over the writer array and display the writer names */}
+                          {data?.created_by
+                            // Use the Set object to remove duplicate writers based on their ID
+                            .filter(
+                              (w, i, arr) =>
+                                arr.findIndex((t) => t.id === w.id) === i
+                            )
+                            .map((w, i, arr) => {
+                              return (
+                                /* Display each writer name and add a comma and space after each one (except for the last one) */
+                                <span key={w.id}>
+                                  {w.name}
+                                  {i !== arr.length - 1 && ", "}
+                                </span>
+                              );
+                            })}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
+                <VideoPopup
+                  show={show}
+                  setShow={setShow}
+                  videoId={videoId}
+                  setVideoId={setVideoId}
+                />
               </ContentWrapper>
             </div>
           )}

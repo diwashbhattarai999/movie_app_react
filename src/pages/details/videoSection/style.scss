@@ -1,0 +1,111 @@
+@import "../../../mixins.scss";
+
+.video__section {
+  margin-bottom: 60px;
+  .title {
+    color: white;
+    margin-bottom: 30px;
+  }
+  .videos {
+    display: flex;
+    gap: 20px;
+    overflow-y: hidden;
+    .video {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      .video__thumbnail {
+        width: 200px;
+        position: relative;
+        img {
+          width: 100%;
+          border-radius: 2px;
+        }
+        svg {
+          width: 60px;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          @include md {
+            width: 80px;
+          }
+        }
+        .triangle {
+          stroke-dasharray: 240;
+          stroke-dashoffset: 480;
+          stroke: white;
+          transform: translateY(0);
+          transition: all 0.7s ease-in-out;
+        }
+        .circle {
+          stroke: white;
+          stroke-dasharray: 650;
+          stroke-dashoffset: 1300;
+          transition: all 0.5s ease-in-out;
+        }
+        &:hover {
+          img {
+            opacity: 0.6;
+          }
+          .triangle {
+            stroke-dashoffset: 0;
+            opacity: 1;
+            stroke: var(--pink);
+            animation: trailorPlay 0.7s ease-in-out;
+          }
+          .circle {
+            stroke-dashoffset: 0;
+            stroke: var(--pink);
+          }
+        }
+      }
+      .video__title {
+        margin-top: 12px;
+        color: white;
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .video__skeleton {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding: 0 20px;
+    @include md {
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .skItem {
+      width: 150px;
+      flex-shrink: 0;
+      @include md {
+        width: 25%;
+      }
+      .thumb {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
+      .row {
+        height: 20px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+      .row2 {
+        height: 20px;
+        width: 75%;
+        border-radius: 10px;
+      }
+    }
+  }
+}

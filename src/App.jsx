@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getApiConfiguration, getGenres } from "./store/homeSlice"; // importing actions from Redux store
 import { fetchDataFromApi } from "./utils/api"; // importing utility function to fetch data from API
-import { Header, Footer } from "./components"; // importing header and footer components
-import { Home, Details, SearchResult, Explore, PageNotFound } from "./pages"; // importing pages
-import { BrowserRouter, Route, Routes } from "react-router-dom"; // importing React Router components
+import { Header, Footer } from "./components"; 
+import { Home, Details, SearchResult, Explore, PageNotFound } from "./pages"; 
+import { BrowserRouter, Route, Routes } from "react-router-dom"; 
 
 function App() {
   const dispatch = useDispatch();
