@@ -29,6 +29,14 @@ const DetailsBanner = ({ video, crew }) => {
     (c) => c.job === "Screenplay" || c.job === "Story" || c.job === "Writer"
   );
 
+  const playTrailer = () => {
+    video?.forEach((v) => {
+      if (v.name.includes("Trailer")) {
+        setVideoId(v.key);
+      }
+    });
+  };
+
   return (
     <div className="details__banner">
       {!loading ? ( // If the data is not loading, render the banner
@@ -86,7 +94,7 @@ const DetailsBanner = ({ video, crew }) => {
                         className="play__btn"
                         onClick={() => {
                           setShow(true);
-                          setVideoId(video.key);
+                          setVideoId(playTrailer);
                         }}
                       >
                         {/* Render the PlayIcon component */}

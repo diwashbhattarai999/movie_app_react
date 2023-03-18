@@ -3,6 +3,8 @@ import useFetch from "../../hooks/useFetch";
 import Cast from "./cast/Cast";
 import DetailsBanner from "./detailsBanner/DetailsBanner";
 import VideoSection from "./videoSection/VideoSection";
+import Similar from "./similar/Similar";
+import Recommendation from "./recommendations/Recommendation";
 import "./style.scss";
 
 const Details = () => {
@@ -14,9 +16,11 @@ const Details = () => {
 
   return (
     <div className="details">
-      <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
+      <DetailsBanner video={data?.results} crew={credits?.crew} />
       <Cast casts={credits?.cast} loading={creditsLoading} />
-      <VideoSection videos={data?.results} loading={loading}/>
+      <VideoSection videos={data?.results} loading={loading} />
+      <Similar />
+      <Recommendation />
     </div>
   );
 };
