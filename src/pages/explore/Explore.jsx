@@ -8,6 +8,8 @@ import { fetchDataFromApi } from "../../utils/api";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
+import Error from "../../assets/no-results.png";
+import { Img } from "../../components";
 
 import "./style.scss";
 
@@ -147,7 +149,10 @@ const Explore = () => {
                 })}
               </InfiniteScroll>
             ) : (
-              <span className="resultNotFound">Sorry, Results not found!</span>
+              <div className="resultNotFound">
+                <span>Sorry, Results not found!</span>
+                <Img src={Error} />
+              </div>
             )}
           </>
         )}
