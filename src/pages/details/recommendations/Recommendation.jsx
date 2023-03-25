@@ -8,7 +8,7 @@ const Recommendation = () => {
   const { data, loading } = useFetch(`/${mediaType}/${id}/recommendations`);
 
   return (
-    <div>
+    <>
       {data?.results.length > 0 && (
         <div className="similar-movies__section">
           <ContentWrapper>
@@ -21,7 +21,7 @@ const Recommendation = () => {
           />
         </div>
       )}
-    </div>
+    </>
   );
 };
 

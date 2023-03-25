@@ -8,12 +8,20 @@ const Similar = () => {
   const { data, loading } = useFetch(`/${mediaType}/${id}/similar`);
 
   return (
-    <div className="similar-movies__section">
-      <ContentWrapper>
-        <h2 className="title">Similar Movies</h2>
-      </ContentWrapper>
-      <Carousel data={data?.results} loading={loading} endPoint={mediaType} />
-    </div>
+    <>
+      {data?.results.length > 0 && (
+        <div className="similar-movies__section">
+          <ContentWrapper>
+            <h2 className="title">Similar Movies</h2>
+          </ContentWrapper>
+          <Carousel
+            data={data?.results}
+            loading={loading}
+            endPoint={mediaType}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
