@@ -64,7 +64,7 @@ const SearchResult = () => {
                 hasMore={pageNum <= data?.total_pages}
                 loader={<Spinner />}
               >
-                {data?.results.map((item) => {
+                {data?.results?.map((item) => {
                   if (item.media_type === "Person") return;
                   return (
                     <MovieCard key={item.id} fromSearch="true" data={item} />

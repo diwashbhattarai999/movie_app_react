@@ -16,7 +16,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
   return (
     <div className="switchTabs">
       <div className="tab__items">
-        {data.map(({ name, id }) => {
+        {data?.map(({ name, id }) => {
           return (
             <span
               className={`tab__item ${selectedTab === id ? "active" : ""}`}

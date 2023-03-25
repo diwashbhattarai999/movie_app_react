@@ -76,7 +76,7 @@ const DetailsBanner = ({ video, crew }) => {
 
                     {/* Render the "genres" */}
                     <div className="genres">
-                      {data?.genres.map((item) => {
+                      {data?.genres?.map((item) => {
                         // Map through the genres array and render each genre
                         return (
                           <div className="genre" key={item.id}>
@@ -148,11 +148,11 @@ const DetailsBanner = ({ video, crew }) => {
                           {/* Iterate over the director array and display the director names */}
                           {director
                             // Use the Set object to remove duplicate writers based on their ID
-                            .filter(
+                            ?.filter(
                               (d, i, arr) =>
                                 arr.findIndex((t) => t.id === d.id) === i
                             )
-                            .map((d, i, arr) => {
+                            ?.map((d, i, arr) => {
                               return (
                                 /* Display each director name and add a comma and space after each one (except for the last one) */
                                 <span key={d.id}>
@@ -173,11 +173,11 @@ const DetailsBanner = ({ video, crew }) => {
                           {/* Iterate over the writer array and display the writer names */}
                           {writer
                             // Use the Set object to remove duplicate writers based on their ID
-                            .filter(
+                            ?.filter(
                               (w, i, arr) =>
                                 arr.findIndex((t) => t.id === w.id) === i
                             )
-                            .map((w, i, arr) => {
+                            ?.map((w, i, arr) => {
                               return (
                                 /* Display each writer name and add a comma and space after each one (except for the last one) */
                                 <span key={w.id}>
@@ -198,11 +198,11 @@ const DetailsBanner = ({ video, crew }) => {
                           {/* Iterate over the writer array and display the writer names */}
                           {data?.created_by
                             // Use the Set object to remove duplicate writers based on their ID
-                            .filter(
+                            ?.filter(
                               (w, i, arr) =>
                                 arr.findIndex((t) => t.id === w.id) === i
                             )
-                            .map((w, i, arr) => {
+                            ?.map((w, i, arr) => {
                               return (
                                 /* Display each writer name and add a comma and space after each one (except for the last one) */
                                 <span key={w.id}>

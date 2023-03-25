@@ -37,7 +37,7 @@ function App() {
 
     const data = await Promise.all(promises); // waiting for all promises to resolve
 
-    data.map(({ genres }) => {
+    data?.map(({ genres }) => {
       return genres.map((item) => {
         allGenres[item.id] = item;
       });
